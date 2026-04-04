@@ -76,7 +76,7 @@ export default function AboutPage() {
             <span className="text-azure-500">Precision</span>
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
-            Since 2005, {SITE_NAME} has supplied high-purity phosphate
+            Since 2020, {SITE_NAME} has supplied high-purity phosphate
             products to the agricultural, chemical, and industrial sectors
             across Asia Pacific. Our growth is built on one principle:
             deliver exactly what we promise, every time.

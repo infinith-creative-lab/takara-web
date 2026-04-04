@@ -64,7 +64,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed text-neutral-400 max-w-xs mb-6">
-              {SITE_TAGLINE}. Trusted by enterprises across Asia Pacific since 2005.
+              {SITE_TAGLINE}. Trusted by enterprises across Asia Pacific since 2020.
             </p>
 
             <address className="not-italic flex flex-col gap-3 mb-8">

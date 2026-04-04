@@ -55,6 +55,7 @@ const createCspHeaders = (nonce: string) => {
       script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com;
       img-src 'self' https://www.googletagmanager.com https://www.google-analytics.com blob: data:;
       connect-src 'self' https://vitals.vercel-insights.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
+      frame-src 'self' https://www.google.com https://www.google.co.id https://maps.google.com;
     `.replace(/\s{2,}/g, " ").trim();
   }
 
@@ -65,6 +66,7 @@ const createCspHeaders = (nonce: string) => {
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval';
     img-src 'self' blob: data:;
     connect-src 'self' https://vitals.vercel-insights.com;
+    frame-src 'self' https://www.google.com https://www.google.co.id https://maps.google.com;
   `.replace(/\s{2,}/g, " ").trim();
 };
 
