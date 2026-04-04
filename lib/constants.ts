@@ -1,0 +1,64 @@
+// lib/constants.ts
+// Site-wide constants — single source of truth.
+// Never hardcode these values elsewhere.
+
+export const SITE_NAME = "TAKARA" as const;
+export const SITE_TAGLINE =
+  "Precision Phosphate Solutions for a Sustainable Future" as const;
+export const SITE_DESCRIPTION =
+  "Takara is a leading supplier of high-purity phosphate products for the agricultural, industrial, and chemical sectors. Trusted by enterprises across Asia Pacific." as const;
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.co.id";
+
+export const COMPANY_EMAIL = "takaranusantara@gmail.com" as const;
+export const COMPANY_PHONE = "(031)7663152" as const;
+export const COMPANY_WHATSAPP = "081331588131" as const;
+export const COMPANY_ADDRESS = "JL. Kebraon Selatan A6 Surabaya" as const;
+export const COMPANY_WORKSHOP = "Jl. Rungkut Barata VI No. 46 Surabaya" as const;
+export const COMPANY_NAME_FULL = "PT. Tangguh Kelola Alam Raya" as const;
+
+export const WEBSITE_DEVELOPER = "Infinith Creative Lab" as const;
+
+export const SOCIAL_LINKS = {
+  facebook: "https://facebook.com/takara",
+  instagram: "https://instagram.com/takara",
+  linkedin: "https://linkedin.com/company/takara",
+  twitter: "https://twitter.com/takara_id",
+} as const;
+
+export const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+export const FOOTER_LINKS = {
+  company: [
+    { label: "About Us", href: "/about" },
+    { label: "Our Story", href: "/about#hero" },
+    { label: "Sustainability", href: "/about#sustainability" },
+  ],
+  products: [
+    { label: "Guano High Phosphate", href: "/products/guano-high-phosphate" },
+    { label: "Calcium Fertilizer", href: "/products/calcium-fertilizer" },
+    { label: "Dolomite Fertilizer", href: "/products/dolomite-fertilizer" },
+    { label: "Guano High Nitrogen", href: "/products/guano-high-nitrogen" },
+    { label: "Palm Bunch Ash", href: "/products/palm-bunch-ash" },
+    { label: "Zeolite Fertilizer", href: "/products/zeolite-fertilizer" },
+  ],
+  services: [
+    { label: "Technical Consulting", href: "/services#consulting" },
+    { label: "R&D - Custom Blending", href: "/services#rnd-blending" },
+    { label: "Global Supply Chain", href: "/services#supply-chain" },
+    { label: "Quality Test & Certification", href: "/services#quality" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
+} as const;
+
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
