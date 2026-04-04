@@ -12,6 +12,7 @@ import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { cn } from "@/lib/utils";
+import { headers } from "next/headers";
 
 // ── Fonts ────────────────────────────────────────────────────
 // Self-hosted via next/font — zero FOUT, zero layout shift.
@@ -96,16 +97,20 @@ export const viewport: Viewport = {
 };
 
 // ── Root Layout ───────────────────────────────────────────────
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const nonce = headersList.get("x-nonce") || "";
+
   return (
     <html lang="en" className={cn("h-full", inter.variable)} data-scroll-behavior="smooth">
       <head>
         {/* Organization JSON-LD — site-wide */}
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: jsonLdScript(organizationJsonLd()),
@@ -113,6 +118,7 @@ export default function RootLayout({
         />
         {/* Website JSON-LD with SearchAction */}
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: jsonLdScript(websiteJsonLd()),
@@ -134,7 +140,7 @@ export default function RootLayout({
         <Footer />
 
         {/* Google Analytics — only loads when GA_MEASUREMENT_ID is set */}
-        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} nonce={nonce} />
 
         {/* Global Scroll to Top button */}
         <ScrollToTop />

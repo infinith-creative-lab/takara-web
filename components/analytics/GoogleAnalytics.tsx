@@ -10,9 +10,10 @@ import Script from "next/script";
 
 interface GoogleAnalyticsProps {
   measurementId: string;
+  nonce?: string;
 }
 
-export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
+export default function GoogleAnalytics({ measurementId, nonce }: GoogleAnalyticsProps) {
   // Guard: do not render anything if GA ID is not provided
   if (!measurementId || measurementId.trim() === "") {
     return null;
@@ -25,9 +26,10 @@ export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps)
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
         strategy="afterInteractive"
         id="ga4-script"
+        nonce={nonce}
       />
       {/* Configure GA4 */}
-      <Script id="ga4-init" strategy="afterInteractive">
+      <Script id="ga4-init" strategy="afterInteractive" nonce={nonce}>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
