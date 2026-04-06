@@ -115,8 +115,8 @@ export default function Hero() {
                   src={slide.image.src}
                   alt={slide.image.alt}
                   fill
-                  priority={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index <= 1}
+                  loading={index <= 1 ? "eager" : "lazy"}
                   quality={90}
                   sizes="100vw"
                   className="object-cover object-center opacity-60"

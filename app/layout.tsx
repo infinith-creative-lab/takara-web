@@ -18,7 +18,7 @@ import { headers } from "next/headers";
 // Self-hosted via next/font — zero FOUT, zero layout shift.
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -54,18 +54,18 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-default.png",
-        width: 1200,
-        height: 630,
+        url: "/og-image.png",
+        width: 150,
+        height: 150,
         alt: `${SITE_NAME} — Precision Phosphate Solutions`,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: ["/og-default.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
