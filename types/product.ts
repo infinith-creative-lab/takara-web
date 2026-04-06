@@ -8,14 +8,9 @@ export interface ProductSpec {
 }
 
 export type ProductCategory =
-  | "rock-phosphate"
-  | "superphosphate"
-  | "ammonium-phosphate"
-  | "calcium-phosphate"
-  | "mineral"
-  | "potash"
-  | "nitrogen"
-  | "specialty";
+  | "fertilizer"
+  | "soil-conditioner"
+  | "others";
 
 export interface Product {
   id: string;

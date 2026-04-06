@@ -42,11 +42,11 @@ export const FOOTER_LINKS = {
   ],
   products: [
     { label: "Guano High Phosphate", href: "/products/guano-high-phosphate" },
-    { label: "Calcium Fertilizer", href: "/products/calcium-fertilizer" },
-    { label: "Dolomite Fertilizer", href: "/products/dolomite-fertilizer" },
-    { label: "Guano High Nitrogen", href: "/products/guano-high-nitrogen" },
+    { label: "Calcium Oksida", href: "/products/calcium-oksida" },
+    { label: "Dolomite", href: "/products/dolomite" },
+    { label: "BAT Guano", href: "/products/bat-guano" },
     { label: "Palm Bunch Ash", href: "/products/palm-bunch-ash" },
-    { label: "Zeolite Fertilizer", href: "/products/zeolite-fertilizer" },
+    { label: "Zeolite", href: "/products/zeolite" },
   ],
   services: [
     { label: "Technical Consulting", href: "/services#consulting" },

@@ -131,16 +131,18 @@ export default function Navbar() {
                   prefetch={false}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200",
+                    "relative px-4 py-2 text-sm font-medium transition-all duration-300 group rounded-md",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500",
-                    isActive
-                      ? isScrolled ? "text-brand-600" : "text-azure-400"
-                      : isScrolled
-                        ? "text-neutral-700 hover:text-brand-600 hover:bg-neutral-100"
-                        : "text-white/80 hover:text-white hover:bg-white/10",
-                    // Active underline indicator
-                    isActive && "after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-full",
-                    isActive && (isScrolled ? "after:bg-brand-600" : "after:bg-azure-400")
+                    // Text color
+                    isScrolled
+                      ? isActive ? "text-brand-600" : "text-neutral-700 hover:text-brand-600"
+                      : isActive ? "text-azure-400" : "text-white",
+                    // Underline Effect: Full-width for Active, Short for Hover
+                    "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:rounded-full after:transition-all after:duration-300",
+                    isScrolled ? "after:bg-brand-600" : "after:bg-azure-400",
+                    isActive 
+                      ? "after:w-full after:opacity-100" 
+                      : "after:w-0 hover:after:w-4 after:opacity-0 hover:after:opacity-100"
                   )}
                 >
                   {link.label}

@@ -112,6 +112,7 @@ export default async function RootLayout({
         <script
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: jsonLdScript(organizationJsonLd()),
           }}
@@ -120,6 +121,7 @@ export default async function RootLayout({
         <script
           nonce={nonce}
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: jsonLdScript(websiteJsonLd()),
           }}

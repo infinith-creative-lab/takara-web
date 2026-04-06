@@ -7,29 +7,26 @@ const TESTIMONIALS = [
   {
     id: "t1",
     quote:
-      "Takara has been our primary phosphate supplier for 8 years. The consistency in P₂O₅ levels and their responsive technical support is unmatched in the region.",
-    author: "Dr. Ahmad Fauzan",
-    title: "Head of Procurement",
-    company: "Agrimax Indonesia",
-    initials: "AF",
+      "Takara has consistently delivered high-purity phosphate that meets our strict industrial standards in Indonesia. Their logistics and technical support are truly world-class.",
+    author: "Mrs. Rachma",
+    company: "Sanjaya Muli Artha, Indonesia",
+    initials: "RM",
   },
   {
     id: "t2",
     quote:
-      "We switched to Takara's MAP fertiliser three seasons ago. The improvement in our starter fertiliser programme was measurable and significant.",
-    author: "Sarah Chen",
-    title: "Senior Agronomist",
-    company: "Pacific Crop Sciences",
-    initials: "SC",
+      "As a partner in South Korea, we value Takara's commitment to quality and transparency. Their products have significantly improved our chemical processing yield.",
+    author: "Kim Lin Hye",
+    company: "South Korea",
+    initials: "KL",
   },
   {
     id: "t3",
     quote:
-      "Their DCP food-grade product cleared all our HACCP audits without issue. Documentation is thorough and the delivery schedule has never slipped.",
-    author: "Rajiv Mehta",
-    title: "Quality Director",
-    company: "NutraChem Solutions",
-    initials: "RM",
+      "Efficient shipping and superior rock phosphate quality. Takara has been instrumental in supporting our large-scale agricultural projects across the Philippines.",
+    author: "Danny L Uy",
+    company: "Philippines",
+    initials: "DU",
   },
 ];
 
@@ -52,7 +49,7 @@ export default function TestimonialsSection() {
             <figure
               key={t.id}
               className="card p-8 flex flex-col"
-              aria-label={`Testimonial from ${t.author}, ${t.title} at ${t.company}`}
+              aria-label={`Testimonial from ${t.author} at ${t.company}`}
             >
               {/* Stars */}
               <div 
@@ -86,7 +83,7 @@ export default function TestimonialsSection() {
                 <div>
                   <p className="text-sm font-semibold text-neutral-900">{t.author}</p>
                   <p className="text-xs text-neutral-700">
-                    {t.title}, {t.company}
+                    {t.company}
                   </p>
                 </div>
               </figcaption>

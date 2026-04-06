@@ -7,15 +7,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 import { PRODUCTS } from "@/content/products";
-import type { Product } from "@/types/product";
+import type { Product, ProductCategory } from "@/types/product";
 import { cn } from "@/lib/utils";
+
+const CATEGORY_STYLES: Record<ProductCategory, string> = {
+  fertilizer: "bg-emerald-50 text-emerald-700 border-emerald-100",
+  "soil-conditioner": "bg-azure-50 text-azure-700 border-azure-100",
+  others: "bg-zinc-50 text-zinc-600 border-zinc-100",
+};
 
 const CATEGORIES: { value: string; label: string }[] = [
   { value: "all", label: "All Products" },
-  { value: "rock-phosphate", label: "Rock Phosphate" },
-  { value: "mineral", label: "Mineral" },
-  { value: "potash", label: "Potash" },
+  { value: "fertilizer", label: "Fertilizer" },
+  { value: "soil-conditioner", label: "Soil Conditioner" },
+  { value: "others", label: "Others" },
 ];
+
+const getCategoryLabel = (cat: string) => {
+  return CATEGORIES.find(c => c.value === cat)?.label || cat;
+}
 
 export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -78,7 +88,7 @@ export default function ProductGrid() {
                 <h2 className="text-xl font-bold text-neutral-900 group-hover:text-brand-600 transition-colors">
                   {product.name}
                 </h2>
-                <span className="text-xs font-semibold text-brand-500 bg-brand-50 px-2.5 py-1 rounded-lg whitespace-nowrap mt-0.5">
+                <span className="text-[10px] font-bold text-brand-700 bg-brand-50/50 border border-brand-100 px-2.5 py-1 rounded-md whitespace-nowrap">
                   {product.purity}
                 </span>
               </div>

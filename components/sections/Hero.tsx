@@ -38,8 +38,8 @@ const slides: Slide[] = [
     cta: { label: "Explore Products", href: "/products" },
     ctaSecondary: { label: "Contact Us", href: "/contact" },
     image: {
-      src: "/images/hero/slide-1.jpg",
-      alt: "Industrial phosphate processing facility with modern equipment",
+      src: "/images/hero/hero-1.webp",
+      alt: "Close-up of industrial phosphate processing with advanced technology",
     },
   },
   {
@@ -52,8 +52,8 @@ const slides: Slide[] = [
     cta: { label: "About Takara", href: "/about" },
     ctaSecondary: { label: "Our Products", href: "/products" },
     image: {
-      src: "/images/hero/slide-2.jpg",
-      alt: "Aerial view of phosphate mining operations in Indonesia",
+      src: "/images/hero/hero-2.webp",
+      alt: "Aerial overview of a modern sustainable phosphate extraction site",
     },
   },
   {
@@ -66,8 +66,8 @@ const slides: Slide[] = [
     cta: { label: "Our Services", href: "/services" },
     ctaSecondary: { label: "Sustainability Commitment", href: "/about#sustainability" },
     image: {
-      src: "/images/hero/slide-3.jpg",
-      alt: "Green landscape surrounding responsible phosphate extraction site",
+      src: "/images/hero/hero-3.webp",
+      alt: "Laboratory-grade purity testing of phosphate compounds",
     },
   },
 ];
@@ -109,21 +109,19 @@ export default function Hero() {
                 isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               )}
             >
-              {/* Background */}
-              <div className="absolute inset-0 bg-hero">
-                {/* Temporarily hid the placeholder image so the bg-hero linear gradient displays identically to the About page */}
-                {/*
+              {/* Background with Image + Tuned Gradient Overlay */}
+              <div className="absolute inset-0 bg-zinc-950">
                 <Image
                   src={slide.image.src}
                   alt={slide.image.alt}
                   fill
                   priority={index === 0}
                   loading={index === 0 ? "eager" : "lazy"}
-                  quality={85}
+                  quality={90}
                   sizes="100vw"
-                  className="object-cover object-center text-transparent"
+                  className="object-cover object-center opacity-60"
                 />
-                */}
+                <div className="absolute inset-0 bg-hero opacity-70" aria-hidden="true" />
               </div>
 
               {/* Slide content */}
