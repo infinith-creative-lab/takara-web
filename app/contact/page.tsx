@@ -15,7 +15,6 @@ import {
   COMPANY_PHONE,
   COMPANY_WHATSAPP,
   COMPANY_ADDRESS,
-  COMPANY_WORKSHOP,
 } from "@/lib/constants";
 import ContactForm from "@/components/sections/ContactForm";
 import FAQSection from "@/components/sections/FAQSection";
@@ -63,13 +62,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
     href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY_ADDRESS)}`,
     ariaLabel: "View head office location on Google Maps",
   },
-  {
-    icon: FiMapPin,
-    label: "WORKSHOP",
-    value: COMPANY_WORKSHOP,
-    href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY_WORKSHOP)}`,
-    ariaLabel: "View workshop location on Google Maps",
-  },
+
   {
     icon: FiClock,
     label: "BUSINESS HOURS",

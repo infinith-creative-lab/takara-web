@@ -14,7 +14,6 @@ export const COMPANY_EMAIL = "takaranusantara@gmail.com" as const;
 export const COMPANY_PHONE = "(031)7663152" as const;
 export const COMPANY_WHATSAPP = "081331588131" as const;
 export const COMPANY_ADDRESS = "JL. Kebraon Selatan A6 Surabaya" as const;
-export const COMPANY_WORKSHOP = "Jl. Rungkut Barata VI No. 46 Surabaya" as const;
 export const COMPANY_NAME_FULL = "PT. Tangguh Kelola Alam Raya" as const;
 
 export const WEBSITE_DEVELOPER = "Infinith Creative Lab" as const;
@@ -41,11 +40,11 @@ export const FOOTER_LINKS = {
     { label: "Sustainability", href: "/about#sustainability" },
   ],
   products: [
-    { label: "Guano High Phosphate", href: "/products/guano-high-phosphate" },
-    { label: "Calcium Oksida", href: "/products/calcium-oksida" },
+    { label: "Guano Phosphate (P2O5)", href: "/products/guano-phosphate-p2o5" },
+    { label: "Bat Guano", href: "/products/bat-guano" },
     { label: "Dolomite", href: "/products/dolomite" },
-    { label: "BAT Guano", href: "/products/bat-guano" },
-    { label: "Palm Bunch Ash", href: "/products/palm-bunch-ash" },
+    { label: "Palm Bunch Ash (K2O)", href: "/products/palm-bunch-ash-k2o" },
+    { label: "Calcium Oksida (CaO)", href: "/products/calcium-oksida-cao" },
     { label: "Zeolite", href: "/products/zeolite" },
   ],
   services: [

@@ -16,7 +16,6 @@ import {
   COMPANY_PHONE,
   COMPANY_WHATSAPP,
   COMPANY_ADDRESS,
-  COMPANY_WORKSHOP,
   COMPANY_NAME_FULL,
   SOCIAL_LINKS,
   WEBSITE_DEVELOPER,
@@ -103,10 +102,6 @@ export default function Footer() {
                   <FiMapPin className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
                   <span>{COMPANY_ADDRESS}</span>
                 </p>
-                <p className="flex items-start gap-2.5 text-sm">
-                  <FiMapPin className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
-                  <span>{COMPANY_WORKSHOP}</span>
-                </p>
               </div>
             </address>
 
@@ -168,15 +163,21 @@ export default function Footer() {
                   {col.heading}
                 </h3>
                 <ul className="flex flex-col gap-3" role="list">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        prefetch={false}
-                        className="text-sm text-neutral-400 hover:text-brand-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400 rounded"
-                      >
-                        {link.label}
-                      </Link>
+                  {col.links.map((link: any) => (
+                    <li key={link.label} className={link.isHeader ? "mt-4 first:mt-0" : ""}>
+                      {link.isHeader ? (
+                        <h4 className="text-xs font-bold text-neutral-200 uppercase tracking-widest mb-2">
+                          {link.label}
+                        </h4>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          prefetch={false}
+                          className="text-sm text-neutral-400 hover:text-brand-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400 rounded"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
