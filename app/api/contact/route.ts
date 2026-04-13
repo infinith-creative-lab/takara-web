@@ -101,10 +101,13 @@ Dikirim dari takara.id Contact Form.
       { message: "Your message has been successfully sent! Our team will respond shortly." },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Failed to send email: ", error);
     return NextResponse.json(
-      { message: "A system error occurred while sending your message. Please try again later." },
+      { 
+        message: "A system error occurred while sending your message. Please try again later.",
+        debug_error: error?.message || String(error)
+      },
       { status: 500 }
     );
   }

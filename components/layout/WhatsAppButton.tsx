@@ -65,14 +65,14 @@ export default function WhatsAppButton() {
     <div
       ref={widgetRef}
       className={cn(
-        "fixed right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300",
+        "fixed right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300 pointer-events-none",
         isScrolled ? "bottom-[4.25rem] sm:bottom-[5rem]" : "bottom-4 sm:bottom-6"
       )}
     >
       {/* Chat Popup */}
       <div
         className={cn(
-          "mb-3 w-[280px] sm:w-[320px] rounded-2xl overflow-hidden shadow-2xl",
+          "mb-3 w-[280px] sm:w-[320px] rounded-2xl overflow-hidden shadow-2xl pointer-events-auto",
           "border border-neutral-200/60 bg-white",
           "transition-all duration-300 origin-bottom-right",
           isOpen
@@ -147,7 +147,7 @@ export default function WhatsAppButton() {
         type="button"
         onClick={() => setIsOpen((v) => !v)}
         className={cn(
-          "p-2.5 sm:p-3 rounded-full shadow-lg",
+          "p-2.5 sm:p-3 rounded-full shadow-lg pointer-events-auto",
           "transition-all duration-300 cursor-pointer",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2",
           "border border-white/20 backdrop-blur-md",
