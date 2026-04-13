@@ -39,7 +39,6 @@ export async function generateMetadata({
     title: product.name,
     description: product.description,
     path: `/products/${slug}`,
-    ogImage: product.image,
   });
 }
 
