@@ -4,7 +4,8 @@
 // Uses mailto: for zero-backend static deployment.
 // Implements controlled form state with validation.
 
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { FiSend, FiCheckCircle } from "react-icons/fi";
 import { COMPANY_EMAIL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -63,8 +64,15 @@ function validate(form: FormState): FormErrors {
 export default function ContactForm() {
   const id = useId();
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState<FormErrors>({} as FormErrors);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [apiError, setApiError] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -75,11 +83,12 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [name]: value }));
     // Clear error on change
     if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined } as FormErrors));
     }
+    if (apiError) setApiError("");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate(form);
     if (Object.keys(validationErrors).length > 0) {
@@ -90,46 +99,65 @@ export default function ContactForm() {
       return;
     }
 
-    // Build mailto link — static site friendly, no backend needed
-    const subject = encodeURIComponent(`[Takara Web] ${form.subject} — ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company || "—"}\nEmail: ${form.email}\nPhone: ${form.phone || "—"}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setForm(INITIAL_STATE);
+    setIsSubmitting(true);
+    setApiError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      setSubmitted(true);
+      setForm(INITIAL_STATE);
+    } catch (err: any) {
+      setApiError(err.message || "A system error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  if (submitted) {
-    return (
-      <div
-        className="card p-12 flex flex-col items-center justify-center text-center gap-4"
-        role="alert"
-        aria-live="polite"
-      >
-        <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center">
-          <FiCheckCircle className="w-8 h-8 text-brand-500" aria-hidden="true" />
-        </div>
-        <h3 className="text-xl font-bold text-neutral-900">
-          Your email client has opened
-        </h3>
-        <p className="text-neutral-600 text-sm max-w-sm">
-          Send the pre-filled message and our team will respond within one
-          business day.
-        </p>
-        <button
-          className="btn-ghost mt-2"
-          onClick={() => setSubmitted(false)}
-        >
-          Send another message
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form
-      id="contact-form"
+    <>
+      {/* Success Modal using Portal to avoid z-index/stacking context issues */}
+      {submitted && mounted && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-neutral-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div
+            className="bg-white rounded-2xl p-8 sm:p-10 max-w-sm w-full flex flex-col items-center justify-center text-center gap-4 animate-in zoom-in-95 duration-300 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-neutral-100"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="success-modal-title"
+          >
+            {/* Green background and green icon for success */}
+            <div className="w-16 h-16 rounded-full bg-success-100 flex items-center justify-center mb-2">
+              <FiCheckCircle className="w-8 h-8 text-success-500" aria-hidden="true" />
+            </div>
+            <h3 id="success-modal-title" className="text-xl font-bold text-neutral-900">
+              Message Sent!
+            </h3>
+            <p className="text-neutral-600 text-sm">
+              We have received your message. A member of our team will get back to you within one business day.
+            </p>
+            <button
+              className="btn-primary w-full mt-4"
+              onClick={() => setSubmitted(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      <form
+        id="contact-form"
       onSubmit={handleSubmit}
       noValidate
       aria-label="Contact form"
@@ -332,14 +360,30 @@ export default function ContactForm() {
         </p>
       </div>
 
+      {/* API Error Box */}
+      {apiError && (
+        <div className="p-4 rounded-xl bg-error-50 border border-error-100 text-error-600 text-sm" role="alert">
+          {apiError}
+        </div>
+      )}
+
       {/* Submit */}
       <button
         type="submit"
-        className="btn-primary btn-lg w-full sm:w-auto self-start flex items-center justify-center gap-2 mt-1"
+        disabled={isSubmitting}
+        className="btn-primary btn-lg w-full sm:w-auto self-start flex items-center justify-center gap-2 mt-1 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200"
       >
-        <FiSend className="w-4 h-4" aria-hidden="true" />
-        Send Message
+        {isSubmitting ? (
+          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        ) : (
+          <FiSend className="w-4 h-4" aria-hidden="true" />
+        )}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
     </form>
+    </>
   );
 }

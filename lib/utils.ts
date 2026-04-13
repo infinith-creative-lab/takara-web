@@ -50,6 +50,6 @@ export function truncate(text: string, maxLength: number): string {
  * Build an absolute URL from a path, using SITE_URL as base.
  */
 export function absoluteUrl(path: string): string {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.co.id";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.id";
   return `${base.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 }

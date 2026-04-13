@@ -48,7 +48,7 @@ const slides: Slide[] = [
     headline: "Trusted by Leading",
     subheadline: "Enterprises Since 2020",
     description:
-      "From rock phosphate to specialty-grade compounds — our portfolio meets the most demanding industrial specifications.",
+      "From guano phosphate to specialty-grade compounds — our portfolio meets the most demanding industrial specifications.",
     cta: { label: "About Takara", href: "/about" },
     ctaSecondary: { label: "Our Products", href: "/products" },
     image: {
@@ -121,7 +121,22 @@ export default function Hero() {
                   sizes="100vw"
                   className="object-cover object-center opacity-60"
                 />
-                <div className="absolute inset-0 bg-hero opacity-70" aria-hidden="true" />
+                {/* Left-heavy dark overlay for text readability */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to right, rgba(2,24,35,0.88) 0%, rgba(3,47,71,0.7) 35%, rgba(9,117,179,0.25) 65%, rgba(255,255,255,0.15) 100%)",
+                  }}
+                  aria-hidden="true"
+                />
+                {/* Subtle bottom vignette for content contrast */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to top, rgba(2,24,35,0.6) 0%, transparent 40%)",
+                  }}
+                  aria-hidden="true"
+                />
               </div>
 
               {/* Slide content */}

@@ -23,8 +23,8 @@ const TESTIMONIALS = [
   {
     id: "t3",
     quote:
-      "Efficient shipping and superior rock phosphate quality. Takara has been instrumental in supporting our large-scale agricultural projects across the Philippines.",
-    author: "Danny L Uy",
+      "Efficient shipping and superior guano phosphate quality. Takara has been instrumental in supporting our large-scale agricultural projects across the Philippines.",
+    author: "Donnie L Uyy",
     company: "Philippines",
     initials: "DU",
   },
@@ -52,9 +52,9 @@ export default function TestimonialsSection() {
               aria-label={`Testimonial from ${t.author} at ${t.company}`}
             >
               {/* Stars */}
-              <div 
-                className="flex items-center gap-1 mb-5" 
-                role="img" 
+              <div
+                className="flex items-center gap-1 mb-5"
+                role="img"
                 aria-label="5 out of 5 stars"
               >
                 {Array.from({ length: 5 }).map((_, i) => (

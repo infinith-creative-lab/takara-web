@@ -16,10 +16,10 @@ export const PRODUCTS: Product[] = [
       "A premium, naturally fossilized organic fertilizer from ancient caves, rich in slow-release phosphorus and calcium for building strong crop foundations.",
     longDescription:
       "A premium, naturally fossilized organic fertilizer sourced from ancient bat and seabird caves. Through years of natural aging, the nitrogen content has leached away, leaving behind an exceptionally high concentration of phosphorus and calcium. It is an essential slow-release fertilizer for building strong foundations in crops.",
-    purity: "25.97% Total P₂O₅",
+    purity: "Up To 20% Total P₂O₅",
     image: "/images/products/Guano-High-Phosphate.webp",
     specs: [
-      { label: "Total P₂O₅ Content", value: "25.97", unit: "%" },
+      { label: "Total P₂O₅ Content", value: "Up To 20", unit: "%" },
       { label: "Available P₂O₅", value: "22.26", unit: "%" },
       { label: "Neutralizing Factor", value: "High", unit: "" },
       { label: "Form", value: "Granule", unit: "" },

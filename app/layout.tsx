@@ -11,6 +11,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import { cn } from "@/lib/utils";
 import { headers } from "next/headers";
 
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Takara Team" }],
   keywords: [
     "phosphate",
-    "rock phosphate",
+    "guano phosphate",
     "TSP fertilizer",
     "MAP fertilizer",
     "dicalcium phosphate",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image.png",
         width: 150,
         height: 150,
         alt: `${SITE_NAME} — Precision Phosphate Solutions`,
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: ["/og-image.png"],
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
@@ -143,6 +144,9 @@ export default async function RootLayout({
 
         {/* Google Analytics — only loads when GA_MEASUREMENT_ID is set */}
         <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} nonce={nonce} />
+
+        {/* Floating WhatsApp button */}
+        <WhatsAppButton />
 
         {/* Global Scroll to Top button */}
         <ScrollToTop />

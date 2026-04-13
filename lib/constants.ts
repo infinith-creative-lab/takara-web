@@ -8,12 +8,12 @@ export const SITE_TAGLINE =
 export const SITE_DESCRIPTION =
   "Takara is a leading supplier of high-purity phosphate products for the agricultural, industrial, and chemical sectors. Trusted by enterprises across Asia Pacific." as const;
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.co.id";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.id";
 
-export const COMPANY_EMAIL = "takaranusantara@gmail.com" as const;
+export const COMPANY_EMAIL = "admin@takara.id" as const;
 export const COMPANY_PHONE = "(031)7663152" as const;
 export const COMPANY_WHATSAPP = "081331588131" as const;
-export const COMPANY_ADDRESS = "JL. Kebraon Selatan A6 Surabaya" as const;
+export const COMPANY_ADDRESS = "Jl. Kebraon Selatan A6 Surabaya" as const;
 export const COMPANY_NAME_FULL = "PT. Tangguh Kelola Alam Raya" as const;
 
 export const WEBSITE_DEVELOPER = "Infinith Creative Lab" as const;

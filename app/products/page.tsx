@@ -12,7 +12,7 @@ import ProductGrid from "@/components/sections/ProductGrid";
 export const metadata: Metadata = buildMetadata({
   title: "Products",
   description:
-    "Browse Takara's full range of high-purity phosphate products — Rock Phosphate, TSP, MAP, DCP, and specialty grades for industrial and agricultural use.",
+    "Browse Takara's full range of high-purity phosphate products — Guano Phosphate, TSP, MAP, DCP, and specialty grades for industrial and agricultural use.",
   path: "/products",
 });
 
@@ -47,7 +47,7 @@ export default function ProductsPage() {
             <span className="text-azure-500">Phosphate Products</span>
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
-            From raw rock phosphate to feed-grade calcium compounds —
+            From raw guano phosphate to feed-grade calcium compounds —
             every product independently tested and certified.
           </p>
         </div>
