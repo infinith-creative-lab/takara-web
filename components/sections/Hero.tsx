@@ -81,8 +81,8 @@ export default function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      // Fixed height container — eliminates CLS
-      style={{ minHeight: "100svh" }}
+      // Fixed height container — eliminates CLS, ensures decent height on landscape
+      style={{ minHeight: "max(100svh, 550px)" }}
       role="region"
       aria-label="Hero carousel"
       aria-roledescription="carousel"
@@ -140,7 +140,7 @@ export default function Hero() {
               </div>
 
               {/* Slide content */}
-              <div className="relative z-10 container-site h-full flex flex-col justify-center pt-24 pb-40 sm:pb-32 lg:pt-40 lg:pb-32">
+              <div className="relative z-10 container-site h-full flex flex-col justify-center pt-24 pb-40 sm:pb-32 lg:pt-40 lg:pb-32 [@media(max-height:500px)]:justify-start [@media(max-height:500px)]:pt-24">
                 <div className="max-w-3xl lg:max-w-4xl">
                   {/* Badge */}
                   {slide.badge && (
@@ -161,7 +161,7 @@ export default function Hero() {
                   {/* Headline */}
                   <h1
                     className={cn(
-                      "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-2",
+                      "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-2 [@media(max-height:500px)]:text-3xl [@media(max-height:500px)]:mb-1",
                       "transition-all duration-700 delay-150",
                       isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     )}
@@ -170,7 +170,7 @@ export default function Hero() {
                   </h1>
                   <p
                     className={cn(
-                      "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mb-8",
+                      "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mb-8 [@media(max-height:500px)]:text-3xl [@media(max-height:500px)]:mb-4",
                       "text-azure-500",
                       "transition-all duration-700 delay-200",
                       isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
@@ -182,7 +182,7 @@ export default function Hero() {
                   {/* Description */}
                   <p
                     className={cn(
-                      "text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl",
+                      "text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl [@media(max-height:500px)]:text-sm [@media(max-height:500px)]:mb-6 [@media(max-height:500px)]:line-clamp-2",
                       "transition-all duration-700 delay-300",
                       isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     )}

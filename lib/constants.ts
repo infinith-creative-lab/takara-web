@@ -19,9 +19,9 @@ export const COMPANY_NAME_FULL = "PT. Tangguh Kelola Alam Raya" as const;
 export const WEBSITE_DEVELOPER = "Infinith Creative Lab" as const;
 
 export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/takara",
-  instagram: "https://instagram.com/takara",
-  linkedin: "https://linkedin.com/company/takara",
+  facebook: "https://facebook.com/takara_id",
+  instagram: "https://instagram.com/takara_id",
+  linkedin: "https://linkedin.com/company/takara_id",
   twitter: "https://twitter.com/takara_id",
 } as const;
 
