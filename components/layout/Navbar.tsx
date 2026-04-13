@@ -241,7 +241,7 @@ export default function Navbar() {
               href={pathname === "/contact" ? "#contact-form" : "/contact"}
               tabIndex={isOpen ? 0 : -1}
               className="btn-primary w-full text-center flex items-center justify-center gap-2"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setTimeout(() => setIsOpen(false), 150)}
             >
               Get in Touch
               <FiSend className="w-4 h-4" aria-hidden="true" />
