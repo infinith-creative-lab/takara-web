@@ -52,7 +52,9 @@ export function buildMetadata({
   path,
   noIndex = false,
 }: BuildMetadataOptions): Metadata {
-  const canonicalUrl = path ? `${SITE_URL}${path}` : undefined;
+  // Pass relative paths ONLY. Next.js engine will auto-combine this with 
+  // `metadataBase` from app/layout.tsx to generate accurate absolute URLs.
+  const canonicalUrl = path ? path : undefined;
 
   // Full title used in OG/Twitter — mirrors what root layout's template produces.
   // e.g. "Products | TAKARA". For the homepage (no title), just SITE_NAME.
@@ -73,6 +75,7 @@ export function buildMetadata({
       locale: "en_US",
       type: "website",
       // `url` only set when we have a confirmed canonical path
+      // Note: Next.js resolves relative paths for `url` against metadataBase seamlessly
       ...(canonicalUrl && { url: canonicalUrl }),
       // images intentionally omitted — app/opengraph-image.png file
       // convention is auto-applied by Next.js for all child routes.
