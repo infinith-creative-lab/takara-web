@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { FiArrowLeft, FiSearch } from "react-icons/fi";
 import { buildMetadata } from "@/lib/metadata";
 
+// path intentionally omitted — noIndex pages must not emit a canonical tag.
 export const metadata: Metadata = buildMetadata({
   title: "Page Not Found",
   description: "The page you are looking for could not be found.",

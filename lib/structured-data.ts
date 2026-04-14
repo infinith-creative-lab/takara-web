@@ -12,7 +12,7 @@ export function organizationJsonLd(): JsonLdType {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/logo.png`,
+    logo: `${SITE_URL}/images/logo.svg`,
     contactPoint: [
       {
         "@type": "ContactPoint",
