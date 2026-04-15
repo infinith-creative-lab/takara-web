@@ -76,12 +76,17 @@ export function productJsonLd(product: {
       "@type": "Organization",
       name: SITE_NAME,
     },
-    inLanguage: "en-US", // Explicitly stating content is in English
     offers: {
       "@type": "Offer",
       url: product.url.startsWith("http") ? product.url : `${SITE_URL}${product.url}`,
       availability: "https://schema.org/InStock",
       itemCondition: "https://schema.org/NewCondition",
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "ID",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "description": "Returns are generally not permitted for bulk agricultural and industrial products unless the product is defective or does not meet agreed specifications."
+      },
       // Price intentionally omitted for B2B. GSC will show a warning, but this is the correct semantic approach when there is no price.
     },
   };
