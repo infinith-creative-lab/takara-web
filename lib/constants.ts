@@ -42,12 +42,12 @@ export const FOOTER_LINKS = {
     { label: "Sustainability", href: "/about#sustainability" },
   ],
   products: [
-    { label: "Guano Phosphate (P2O5)", href: "/products/guano-phosphate-p2o5" },
+    { label: "Guano Phosphate (P2O5)", href: "/products/organic-guano-phosphate" },
     { label: "Bat Guano", href: "/products/bat-guano" },
-    { label: "Dolomite", href: "/products/dolomite" },
-    { label: "Palm Bunch Ash (K2O)", href: "/products/palm-bunch-ash-k2o" },
-    { label: "Calcium Oksida (CaO)", href: "/products/calcium-oksida-cao" },
-    { label: "Zeolite", href: "/products/zeolite" },
+    { label: "Dolomite", href: "/products/agricultural-dolomite-mgo" },
+    { label: "Palm Bunch Ash (K2O)", href: "/products/palm-bunch-ash-potassium" },
+    { label: "Calcium Oxide (CaO)", href: "/products/calcium-oxide-cao" },
+    { label: "Zeolite", href: "/products/natural-zeolite-mineral" },
   ],
   services: [
     { label: "Technical Consulting", href: "/services#consulting" },

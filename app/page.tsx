@@ -13,7 +13,19 @@ import { buildMetadata } from "@/lib/metadata";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
 export const metadata: Metadata = buildMetadata({
+  title: "Precision Phosphate & Natural Minerals — Global B2B Supplier",
+  description:
+    "Takara is Indonesia's leading enterprise supplier for high-purity organic Guano Phosphate, Palm Bunch Ash, Dolomite, and industrial minerals. Sourced sustainably for global agriculture.",
   path: "/",
+  keywords: [
+    "Takara phosphate",
+    "B2B phosphate supplier",
+    "Indonesia fertilizer exporter",
+    "guano phosphate p2o5",
+    "palm bunch ash fertilizer",
+    "agricultural minerals Asia",
+    "sustainable farming inputs",
+  ],
 });
 
 export default function HomePage() {
