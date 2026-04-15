@@ -2,7 +2,7 @@
 // JSON-LD structured data builders for rich search results.
 // Each function returns a typed JSON-LD object ready for <script> injection.
 
-import { SITE_NAME, SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS } from "./constants";
+import { SITE_NAME, SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS, COMPANY_CITY, COMPANY_POSTAL_CODE } from "./constants";
 
 export type JsonLdType = Record<string, unknown>;
 
@@ -26,6 +26,8 @@ export function organizationJsonLd(): JsonLdType {
     address: {
       "@type": "PostalAddress",
       streetAddress: COMPANY_ADDRESS,
+      addressLocality: COMPANY_CITY,
+      postalCode: COMPANY_POSTAL_CODE,
       addressCountry: "ID",
     },
     sameAs: [

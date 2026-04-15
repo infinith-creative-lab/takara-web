@@ -14,6 +14,8 @@ export const COMPANY_EMAIL = "admin@takara.id" as const;
 export const COMPANY_PHONE = "(031)7663152" as const;
 export const COMPANY_WHATSAPP = "081331588131" as const;
 export const COMPANY_ADDRESS = "Jl. Kebraon Selatan A6 Surabaya" as const;
+export const COMPANY_CITY = "Surabaya" as const;
+export const COMPANY_POSTAL_CODE = "60222" as const;
 export const COMPANY_NAME_FULL = "PT. Tangguh Kelola Alam Raya" as const;
 
 export const WEBSITE_DEVELOPER = "Infinith Creative Lab" as const;
