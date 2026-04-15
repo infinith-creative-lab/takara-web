@@ -2,6 +2,8 @@
 // Auto-generated sitemap for Next.js App Router.
 // Returns all static routes + dynamic product routes.
 
+export const dynamic = "force-static";
+
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 import { getAllProductSlugs } from "@/content/products";

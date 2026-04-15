@@ -74,6 +74,52 @@ export function productJsonLd(product: {
       "@type": "Organization",
       name: SITE_NAME,
     },
+    inLanguage: "en-US", // Explicitly stating content is in English
+    offers: {
+      "@type": "Offer",
+      url: product.url.startsWith("http") ? product.url : `${SITE_URL}${product.url}`,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      // Price intentionally omitted for B2B. GSC will show a warning, but this is the correct semantic approach when there is no price.
+    },
+  };
+}
+
+export function articleJsonLd(article: {
+  headline: string;
+  description: string;
+  image: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  authorName?: string;
+}): JsonLdType {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": article.url.startsWith("http") ? article.url : `${SITE_URL}${article.url}`,
+    },
+    inLanguage: "en-US", // Explicitly stating content is in English
+    headline: article.headline,
+    description: article.description,
+    image: article.image.startsWith("http") ? article.image : `${SITE_URL}${article.image}`,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    author: {
+      "@type": "Organization",
+      name: article.authorName || SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo.png`, // Google prefers PNG/JPG for publisher logos over SVG sometimes
+      },
+    },
   };
 }
 

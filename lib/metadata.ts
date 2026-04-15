@@ -40,6 +40,15 @@ interface BuildMetadataOptions {
   path?: string;
 
   /**
+   * Optional custom OpenGraph image path (e.g. for products).
+   * Falls back to standard metadataBase + opengraph-image.png if omitted.
+   */
+  image?: string;
+
+  /** Custom keywords for this specific page. */
+  keywords?: string | string[];
+  
+  /**
    * Set true to mark this page as noIndex/noFollow.
    * When true, `path` may be omitted (no canonical will be emitted).
    */
@@ -50,11 +59,18 @@ export function buildMetadata({
   title,
   description = SITE_DESCRIPTION,
   path,
+  image,
+  keywords,
   noIndex = false,
 }: BuildMetadataOptions): Metadata {
   // Pass relative paths ONLY. Next.js engine will auto-combine this with 
   // `metadataBase` from app/layout.tsx to generate accurate absolute URLs.
   const canonicalUrl = path ? path : undefined;
+
+  // The final custom OG Image relative to SITE_URL if specified
+  const customOgImage = image
+    ? [{ url: image.startsWith("http") ? image : `${SITE_URL}${image}`, width: 1200, height: 630, alt: title || SITE_NAME }]
+    : undefined;
 
   // Full title used in OG/Twitter — mirrors what root layout's template produces.
   // e.g. "Products | TAKARA". For the homepage (no title), just SITE_NAME.
@@ -68,6 +84,8 @@ export function buildMetadata({
 
     description,
 
+    ...(keywords && { keywords }),
+
     openGraph: {
       title: fullTitle,
       description,
@@ -77,15 +95,16 @@ export function buildMetadata({
       // `url` only set when we have a confirmed canonical path
       // Note: Next.js resolves relative paths for `url` against metadataBase seamlessly
       ...(canonicalUrl && { url: canonicalUrl }),
-      // images intentionally omitted — app/opengraph-image.png file
-      // convention is auto-applied by Next.js for all child routes.
+      // Override standard opengraph images if custom image exists
+      ...(customOgImage && { images: customOgImage }),
     },
 
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      // images intentionally omitted — same file convention reason above.
+      // Override standard twitter images if custom image exists
+      ...(customOgImage && { images: customOgImage }),
     },
 
     // Canonical is emitted only when `path` is provided.

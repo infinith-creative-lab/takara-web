@@ -10,6 +10,7 @@ import { FiArrowLeft, FiCheckCircle } from "react-icons/fi";
 import { buildMetadata } from "@/lib/metadata";
 import {
   productJsonLd,
+  articleJsonLd,
   breadcrumbJsonLd,
   jsonLdScript,
 } from "@/lib/structured-data";
@@ -39,6 +40,15 @@ export async function generateMetadata({
     title: product.name,
     description: product.description,
     path: `/products/${slug}`,
+    image: product.image,
+    keywords: [
+      product.name,
+      product.category,
+      product.tagline,
+      "phosphate supplier",
+      "Indonesia",
+      ...product.certifications
+    ],
   });
 }
 
@@ -61,6 +71,15 @@ export default async function ProductDetailPage({
     sku: product.id,
   });
 
+  const articleLd = articleJsonLd({
+    headline: `${product.name} — Premium ${product.category} for Sustainable Agriculture`,
+    description: product.longDescription,
+    image: product.image,
+    url: `/products/${product.slug}`,
+    datePublished: "2024-01-01T00:00:00+07:00", // Would be ideal to get from DB, hardcoding static date as fallback
+    dateModified: new Date().toISOString(),      // Real-time update marking since Nextjs SSG revalidates
+  });
+
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", url: SITE_URL },
     { name: "Products", url: `${SITE_URL}/products` },
@@ -72,6 +91,10 @@ export default async function ProductDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(articleLd) }}
       />
       <script
         type="application/ld+json"
@@ -115,6 +138,7 @@ export default async function ProductDetailPage({
                   alt={`${product.name} — ${product.purity}`}
                   fill
                   priority
+                  fetchPriority="high"
                   quality={90}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
