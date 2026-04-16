@@ -3,6 +3,7 @@
 // Never hardcode these values elsewhere.
 
 export const SITE_NAME = "PT. Tangguh Kelola Alam Raya" as const;
+export const BRAND_NAME = "Takara" as const;
 export const SITE_TAGLINE =
   "Premium Phosphate, Bat Guano, Palm Bunch Ash & Agricultural Minerals" as const;
 export const SITE_DESCRIPTION =

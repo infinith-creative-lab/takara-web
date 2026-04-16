@@ -14,7 +14,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { NAV_LINKS, BRAND_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -113,7 +113,7 @@ export default function Navbar() {
               isScrolled || isOpen ? "text-neutral-900" : "text-white"
             )}
           >
-            {SITE_NAME}
+            {BRAND_NAME}
           </span>
         </Link>
 

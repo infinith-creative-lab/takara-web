@@ -10,6 +10,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Logo from "@/components/ui/Logo";
 import {
   SITE_NAME,
+  BRAND_NAME,
   SITE_TAGLINE,
   FOOTER_LINKS,
   COMPANY_EMAIL,
@@ -58,7 +59,7 @@ export default function Footer() {
               <span className="sr-only">TAKARA — Back to Home</span>
               <Logo variant="default" className="w-9 h-auto" />
               <span className="text-xl font-bold text-white tracking-tight">
-                {SITE_NAME}
+                {BRAND_NAME}
               </span>
             </Link>
 
