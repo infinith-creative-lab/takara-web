@@ -2,7 +2,7 @@
 // JSON-LD structured data builders for rich search results.
 // Each function returns a typed JSON-LD object ready for <script> injection.
 
-import { SITE_NAME, SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS, COMPANY_CITY, COMPANY_POSTAL_CODE } from "./constants";
+import { SITE_NAME, SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS, COMPANY_CITY, COMPANY_POSTAL_CODE, COMPANY_NAME_FULL } from "./constants";
 
 export type JsonLdType = Record<string, unknown>;
 
@@ -11,6 +11,8 @@ export function organizationJsonLd(): JsonLdType {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_NAME,
+    legalName: COMPANY_NAME_FULL,
+    alternateName: [COMPANY_NAME_FULL, "Takara Indonesia"],
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.svg`,
     contactPoint: [
@@ -41,6 +43,7 @@ export function websiteJsonLd(): JsonLdType {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
+    alternateName: [COMPANY_NAME_FULL, "Takara Indonesia"],
     url: SITE_URL,
     potentialAction: {
       "@type": "SearchAction",

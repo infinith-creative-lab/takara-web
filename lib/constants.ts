@@ -2,11 +2,11 @@
 // Site-wide constants — single source of truth.
 // Never hardcode these values elsewhere.
 
-export const SITE_NAME = "TAKARA" as const;
+export const SITE_NAME = "PT. Tangguh Kelola Alam Raya" as const;
 export const SITE_TAGLINE =
-  "Precision Phosphate Solutions for a Sustainable Future" as const;
+  "Premium Phosphate, Bat Guano, Palm Bunch Ash & Agricultural Minerals" as const;
 export const SITE_DESCRIPTION =
-  "Takara is a leading supplier of high-purity phosphate products for the agricultural, industrial, and chemical sectors. Trusted by enterprises across Asia Pacific." as const;
+  "PT. Tangguh Kelola Alam Raya is a leading enterprise supplier of high-purity Guano Phosphate, Bat Guano, Palm Bunch Ash, Dolomite, Calcium Oxide (CaO), and Zeolite. Trusted globally for sustainable agriculture and industry." as const;
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://takara.id";
 

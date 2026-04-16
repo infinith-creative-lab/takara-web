@@ -10,9 +10,9 @@ import PatternDots from "@/components/ui/PatternDots";
 import ProductGrid from "@/components/sections/ProductGrid";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Products",
+  title: "Agricultural Minerals Catalog | Guano, Zeolite & Dolomite",
   description:
-    "Browse Takara's full range of high-purity phosphate products — Guano Phosphate, TSP, MAP, DCP, and specialty grades for industrial and agricultural use.",
+    "Browse our full range of high-performance natural fertilizers and industrial minerals — Guano Phosphate, Bat Guano, Palm Bunch Ash, Dolomite, Calcium Oxide, and Zeolite Fertilizer.",
   path: "/products",
 });
 
@@ -43,12 +43,12 @@ export default function ProductsPage() {
             className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight max-w-3xl"
             style={{ letterSpacing: "-0.03em" }}
           >
-            High-Purity{" "}
-            <span className="text-azure-500">Phosphate Products</span>
+            Premium Natural{" "}
+            <span className="text-azure-500">Fertilizers & Minerals</span>
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
-            From raw guano phosphate to feed-grade calcium compounds —
-            every product independently tested and certified.
+            From high-purity Guano Phosphate to Zeolite Fertilizer —
+            every product independently tested and certified for agricultural excellence.
           </p>
         </div>
       </section>

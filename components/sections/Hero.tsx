@@ -31,10 +31,10 @@ const slides: Slide[] = [
   {
     id: "slide-1",
     badge: "Certification COO Kemendag",
-    headline: "Precision Phosphate",
-    subheadline: "Solutions for Industry",
+    headline: "PT. Tangguh Kelola Alam Raya",
+    subheadline: "Phosphate, Bat Guano & Minerals",
     description:
-      "Supplying high-purity phosphate products to agricultural, chemical, and industrial sectors across Asia Pacific.",
+      "Indonesia's premier enterprise supplier of Guano Phosphate, Bat Guano, Palm Bunch Ash, Dolomite, Calcium Oxide, and Zeolite for global industry and agriculture.",
     cta: { label: "Explore Products", href: "/products" },
     ctaSecondary: { label: "Contact Us", href: "/contact" },
     image: {
